@@ -32,17 +32,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jifCadastro = new javax.swing.JInternalFrame();
         jpCadastro = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonCadatroPoste = new javax.swing.JButton();
+        jButtonCadastroCaixa = new javax.swing.JButton();
+        jButtonCadastroInspeção = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jbFechaCadastro = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmCadastro = new javax.swing.JMenu();
-        jmPoste = new javax.swing.JMenuItem();
-        jmCaixa = new javax.swing.JMenuItem();
-        jmInspecao = new javax.swing.JMenuItem();
-        jmSair = new javax.swing.JMenuItem();
+        jmMenuCadastroPoste = new javax.swing.JMenuItem();
+        jmMenuCadastroCaixa = new javax.swing.JMenuItem();
+        jmMenuiCadastroInspecao = new javax.swing.JMenuItem();
+        jmMenuSair = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jmFerramenta = new javax.swing.JMenu();
         jmTelaCadastro = new javax.swing.JMenuItem();
@@ -61,19 +61,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Cadastros");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/PosteTeste.png"))); // NOI18N
-        jButton1.setToolTipText("Cadastro de Poste");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCadatroPoste.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/PosteTeste.png"))); // NOI18N
+        jButtonCadatroPoste.setToolTipText("Cadastro de Poste");
+        jButtonCadatroPoste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonCadatroPosteActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/EnergyBoxColor.png"))); // NOI18N
-        jButton2.setToolTipText("Cadastro de Caixa");
+        jButtonCadastroCaixa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/EnergyBoxColor.png"))); // NOI18N
+        jButtonCadastroCaixa.setToolTipText("Cadastro de Caixa");
+        jButtonCadastroCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastroCaixaActionPerformed(evt);
+            }
+        });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Inspec_1.png"))); // NOI18N
-        jButton3.setToolTipText("Cadastrar Inspeção");
+        jButtonCadastroInspeção.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Inspec_1.png"))); // NOI18N
+        jButtonCadastroInspeção.setToolTipText("Cadastrar Inspeção");
+        jButtonCadastroInspeção.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastroInspeçãoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpCadastroLayout = new javax.swing.GroupLayout(jpCadastro);
         jpCadastro.setLayout(jpCadastroLayout);
@@ -84,11 +94,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jpCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jpCadastroLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonCadatroPoste, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonCadastroCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonCadastroInspeção, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(393, Short.MAX_VALUE))
         );
         jpCadastroLayout.setVerticalGroup(
@@ -97,9 +107,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jpCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jButtonCadastroInspeção, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jButtonCadatroPoste, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCadastroCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(0, 97, Short.MAX_VALUE))
         );
 
@@ -126,40 +136,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jmCadastro.setText("Cadastro");
 
-        jmPoste.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK));
-        jmPoste.setText("Poste");
-        jmPoste.addActionListener(new java.awt.event.ActionListener() {
+        jmMenuCadastroPoste.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK));
+        jmMenuCadastroPoste.setText("Poste");
+        jmMenuCadastroPoste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmPosteActionPerformed(evt);
+                jmMenuCadastroPosteActionPerformed(evt);
             }
         });
-        jmCadastro.add(jmPoste);
+        jmCadastro.add(jmMenuCadastroPoste);
 
-        jmCaixa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
-        jmCaixa.setText("Caixa de Inspeção");
-        jmCaixa.addActionListener(new java.awt.event.ActionListener() {
+        jmMenuCadastroCaixa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+        jmMenuCadastroCaixa.setText("Caixa de Inspeção");
+        jmMenuCadastroCaixa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmCaixaActionPerformed(evt);
+                jmMenuCadastroCaixaActionPerformed(evt);
             }
         });
-        jmCadastro.add(jmCaixa);
+        jmCadastro.add(jmMenuCadastroCaixa);
 
-        jmInspecao.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.ALT_MASK));
-        jmInspecao.setText("Inspeção");
-        jmInspecao.addActionListener(new java.awt.event.ActionListener() {
+        jmMenuiCadastroInspecao.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.ALT_MASK));
+        jmMenuiCadastroInspecao.setText("Inspeção");
+        jmMenuiCadastroInspecao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmInspecaoActionPerformed(evt);
+                jmMenuiCadastroInspecaoActionPerformed(evt);
             }
         });
-        jmCadastro.add(jmInspecao);
+        jmCadastro.add(jmMenuiCadastroInspecao);
 
-        jmSair.setText("Sair");
-        jmSair.addActionListener(new java.awt.event.ActionListener() {
+        jmMenuSair.setText("Sair");
+        jmMenuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmSairActionPerformed(evt);
+                jmMenuSairActionPerformed(evt);
             }
         });
-        jmCadastro.add(jmSair);
+        jmCadastro.add(jmMenuSair);
 
         jMenuBar1.add(jmCadastro);
 
@@ -187,28 +197,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmPosteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPosteActionPerformed
+    private void jmMenuCadastroPosteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuCadastroPosteActionPerformed
         // TODO add your handling code here:
         FormularioPoste tela = new FormularioPoste();
         tela.setVisible(true);
-    }//GEN-LAST:event_jmPosteActionPerformed
+    }//GEN-LAST:event_jmMenuCadastroPosteActionPerformed
 
-    private void jmSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSairActionPerformed
+    private void jmMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuSairActionPerformed
         // TODO add your handling code here:
         JOptionPane.showConfirmDialog(rootPane, "Deseja realmente Sair");
         System.exit(0);
         
-    }//GEN-LAST:event_jmSairActionPerformed
+    }//GEN-LAST:event_jmMenuSairActionPerformed
 
-    private void jmCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCaixaActionPerformed
+    private void jmMenuCadastroCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuCadastroCaixaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jmCaixaActionPerformed
+        FormularioInspecao telaInspecao = new FormularioInspecao();
+        telaInspecao.setVisible(true);
+        
+    }//GEN-LAST:event_jmMenuCadastroCaixaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonCadatroPosteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadatroPosteActionPerformed
         // TODO add your handling code here:
-        FormularioPoste tela = new FormularioPoste();
-        tela.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        FormularioPoste telaCadastroPoste = new FormularioPoste();
+        telaCadastroPoste.setVisible(true);
+    }//GEN-LAST:event_jButtonCadatroPosteActionPerformed
 
     private void jbFechaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFechaCadastroActionPerformed
     
@@ -216,9 +229,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jifCadastro.dispose();
     }//GEN-LAST:event_jbFechaCadastroActionPerformed
 
-    private void jmInspecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmInspecaoActionPerformed
+    private void jmMenuiCadastroInspecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuiCadastroInspecaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jmInspecaoActionPerformed
+        FormularioInspecao telaInspecao = new FormularioInspecao();
+        telaInspecao.setVisible(true);
+    }//GEN-LAST:event_jmMenuiCadastroInspecaoActionPerformed
 
     private void jmTelaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmTelaCadastroActionPerformed
         // Chama Tela de Cadastro dos Postes
@@ -226,6 +241,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jmTelaCadastroActionPerformed
+
+    private void jButtonCadastroCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroCaixaActionPerformed
+        // TODO add your handling code here:
+        FormularioCaixa telaCadastroCaixa = new FormularioCaixa();
+        telaCadastroCaixa.setVisible(true);
+    }//GEN-LAST:event_jButtonCadastroCaixaActionPerformed
+
+    private void jButtonCadastroInspeçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroInspeçãoActionPerformed
+        // TODO add your handling code here:
+        FormularioInspecao telaInspecao = new FormularioInspecao();
+        telaInspecao.setVisible(true);
+    }//GEN-LAST:event_jButtonCadastroInspeçãoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,9 +290,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonCadastroCaixa;
+    private javax.swing.JButton jButtonCadastroInspeção;
+    private javax.swing.JButton jButtonCadatroPoste;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -274,11 +301,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jbFechaCadastro;
     private javax.swing.JInternalFrame jifCadastro;
     private javax.swing.JMenu jmCadastro;
-    private javax.swing.JMenuItem jmCaixa;
     private javax.swing.JMenu jmFerramenta;
-    private javax.swing.JMenuItem jmInspecao;
-    private javax.swing.JMenuItem jmPoste;
-    private javax.swing.JMenuItem jmSair;
+    private javax.swing.JMenuItem jmMenuCadastroCaixa;
+    private javax.swing.JMenuItem jmMenuCadastroPoste;
+    private javax.swing.JMenuItem jmMenuSair;
+    private javax.swing.JMenuItem jmMenuiCadastroInspecao;
     private javax.swing.JMenuItem jmTelaCadastro;
     private javax.swing.JPanel jpCadastro;
     // End of variables declaration//GEN-END:variables

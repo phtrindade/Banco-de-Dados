@@ -46,8 +46,8 @@ public class FormularioPoste extends javax.swing.JFrame {
         jbNovoCadastroPoste = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablePostesCadastrados = new javax.swing.JTable();
-        jtfPesquisar = new javax.swing.JTextField();
-        jButtonPesquisar = new javax.swing.JButton();
+        jtfPesquisarPostes = new javax.swing.JTextField();
+        jbPesquisarPostes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -105,26 +105,18 @@ public class FormularioPoste extends javax.swing.JFrame {
 
         jTablePostesCadastrados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Etiqueta", "Altura", "Material", "Latitude", "Logitude", "Etiqueta Ponto Distribuição"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
+        ));
         jScrollPane1.setViewportView(jTablePostesCadastrados);
 
-        jButtonPesquisar.setText("Pesquisar");
+        jbPesquisarPostes.setText("Pesquisar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -166,9 +158,9 @@ public class FormularioPoste extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jtfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfPesquisarPostes, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(12, 12, 12)
-                            .addComponent(jButtonPesquisar)))
+                            .addComponent(jbPesquisarPostes)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addComponent(jbSalvarCadastroPoste, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,7 +170,7 @@ public class FormularioPoste extends javax.swing.JFrame {
                         .addComponent(jbCancelarCadastroPoste)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbExcluirCadastroPoste, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 29, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,8 +207,8 @@ public class FormularioPoste extends javax.swing.JFrame {
                     .addComponent(jcbMaterialPoste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonPesquisar))
+                    .addComponent(jtfPesquisarPostes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbPesquisarPostes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -238,11 +230,9 @@ public class FormularioPoste extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,7 +243,7 @@ public class FormularioPoste extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        setSize(new java.awt.Dimension(638, 472));
+        setSize(new java.awt.Dimension(620, 472));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -313,7 +303,6 @@ public class FormularioPoste extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -327,6 +316,7 @@ public class FormularioPoste extends javax.swing.JFrame {
     private javax.swing.JButton jbCancelarCadastroPoste;
     private javax.swing.JButton jbExcluirCadastroPoste;
     private javax.swing.JButton jbNovoCadastroPoste;
+    private javax.swing.JButton jbPesquisarPostes;
     private javax.swing.JButton jbSalvarCadastroPoste;
     private javax.swing.JComboBox<String> jcbMaterialPoste;
     private javax.swing.JLabel jlAlturaPoste;
@@ -334,6 +324,6 @@ public class FormularioPoste extends javax.swing.JFrame {
     private javax.swing.JLabel jlMaterialPoste;
     private javax.swing.JTextField jtfAlturaPoste;
     private javax.swing.JTextField jtfEtiquetaPoste;
-    private javax.swing.JTextField jtfPesquisar;
+    private javax.swing.JTextField jtfPesquisarPostes;
     // End of variables declaration//GEN-END:variables
 }
