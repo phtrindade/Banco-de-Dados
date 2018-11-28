@@ -5,6 +5,7 @@
  */
 package Views;
 
+import Control.Coneccao;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,11 +14,13 @@ import javax.swing.JOptionPane;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaPrincipal
-     */
+    Coneccao conecta = new Coneccao();
+    
+    
     public TelaPrincipal() {
         initComponents();
+            conecta.coneccao();
+
     }
 
     /**
@@ -198,39 +201,38 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmMenuCadastroPosteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuCadastroPosteActionPerformed
-        // TODO add your handling code here:
+        // Chama a tela de Cadastro de Poste pelo menu
         FormularioPoste tela = new FormularioPoste();
         tela.setVisible(true);
     }//GEN-LAST:event_jmMenuCadastroPosteActionPerformed
 
     private void jmMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuSairActionPerformed
-        // TODO add your handling code here:
+        // Exibe perguta de confirmação de encerramento de programa
         JOptionPane.showConfirmDialog(rootPane, "Deseja realmente Sair");
         System.exit(0);
         
     }//GEN-LAST:event_jmMenuSairActionPerformed
 
     private void jmMenuCadastroCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuCadastroCaixaActionPerformed
-        // TODO add your handling code here:
+        // Chama tela de cadastro de inspeção de poste via menu
         FormularioInspecao telaInspecao = new FormularioInspecao();
         telaInspecao.setVisible(true);
         
     }//GEN-LAST:event_jmMenuCadastroCaixaActionPerformed
 
     private void jButtonCadatroPosteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadatroPosteActionPerformed
-        // TODO add your handling code here:
+        // Chama tela de cadastro de poste via botão personalizado na tela inicial
         FormularioPoste telaCadastroPoste = new FormularioPoste();
         telaCadastroPoste.setVisible(true);
     }//GEN-LAST:event_jButtonCadatroPosteActionPerformed
 
     private void jbFechaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFechaCadastroActionPerformed
-    
-        // Fecha tela do Cadastro
+            // Fecha tela do Cadastro
         jifCadastro.dispose();
     }//GEN-LAST:event_jbFechaCadastroActionPerformed
 
     private void jmMenuiCadastroInspecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuiCadastroInspecaoActionPerformed
-        // TODO add your handling code here:
+        // Chama tela de cadastro via menu
         FormularioInspecao telaInspecao = new FormularioInspecao();
         telaInspecao.setVisible(true);
     }//GEN-LAST:event_jmMenuiCadastroInspecaoActionPerformed
@@ -243,13 +245,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmTelaCadastroActionPerformed
 
     private void jButtonCadastroCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroCaixaActionPerformed
-        // TODO add your handling code here:
+        // ja sabe que se faz esse função
         FormularioCaixa telaCadastroCaixa = new FormularioCaixa();
         telaCadastroCaixa.setVisible(true);
     }//GEN-LAST:event_jButtonCadastroCaixaActionPerformed
 
     private void jButtonCadastroInspeçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroInspeçãoActionPerformed
-        // TODO add your handling code here:
+        
         FormularioInspecao telaInspecao = new FormularioInspecao();
         telaInspecao.setVisible(true);
     }//GEN-LAST:event_jButtonCadastroInspeçãoActionPerformed
