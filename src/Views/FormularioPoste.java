@@ -21,6 +21,7 @@ public class FormularioPoste extends javax.swing.JFrame {
     
     
     
+    
     public FormularioPoste() {
         initComponents();
     }

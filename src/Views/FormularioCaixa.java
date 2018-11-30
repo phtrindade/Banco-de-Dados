@@ -5,15 +5,24 @@
  */
 package Views;
 
+import Control.Coneccao;
+import Control.ControleCaixa;
+import Model.ModeloCaixa;
+
 /**
  *
  * @author trindade
  */
 public class FormularioCaixa extends javax.swing.JFrame {
 
+    ModeloCaixa mod =   new ModeloCaixa();
+    ControleCaixa control = new ControleCaixa();
+    Coneccao conex = new Coneccao();
+    
     /**
      * Creates new form FormularioCaixa
      */
+    
     public FormularioCaixa() {
         initComponents();
     }
@@ -30,23 +39,22 @@ public class FormularioCaixa extends javax.swing.JFrame {
         jPanelTipoCaixa = new javax.swing.JPanel();
         jlEtiquetaCaixa = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jCheckBoxAerea = new javax.swing.JCheckBox();
-        jCheckBoxSubterranea = new javax.swing.JCheckBox();
         jLabelPotencia = new javax.swing.JLabel();
         jLabelLatitude = new javax.swing.JLabel();
         jLabelLongitude = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jtfEtiquetaCaixa = new javax.swing.JTextField();
+        jtfPotenciaCaixa = new javax.swing.JTextField();
+        jtfLatitudeCaixa = new javax.swing.JTextField();
+        jtfLongitudeCaixa = new javax.swing.JTextField();
         jbSalvarCadastroPDistribuicao = new javax.swing.JButton();
         jbNovoCadastroPDistribuicao = new javax.swing.JButton();
         jbCancelarCadastroPDistribuicao = new javax.swing.JButton();
         jbExcluirCadastroPDistribuicao = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jtfPesquisarPDistribuicao = new javax.swing.JTextField();
+        jtfPesquisarCaixa = new javax.swing.JTextField();
         jbPesquisarPDistribuição = new javax.swing.JButton();
+        jcbTipoCaixa = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -57,35 +65,21 @@ public class FormularioCaixa extends javax.swing.JFrame {
 
         jLabel2.setText("Tipo da caixa:");
 
-        jCheckBoxAerea.setText("Aérea");
-        jCheckBoxAerea.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxAereaActionPerformed(evt);
-            }
-        });
-
-        jCheckBoxSubterranea.setText("Subterrânea");
-        jCheckBoxSubterranea.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxSubterraneaActionPerformed(evt);
-            }
-        });
-
         jLabelPotencia.setText("Potencia:");
 
         jLabelLatitude.setText("Latitude:");
 
         jLabelLongitude.setText("Longitude:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jtfEtiquetaCaixa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jtfEtiquetaCaixaActionPerformed(evt);
             }
         });
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jtfLatitudeCaixa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                jtfLatitudeCaixaActionPerformed(evt);
             }
         });
 
@@ -132,6 +126,8 @@ public class FormularioCaixa extends javax.swing.JFrame {
             }
         });
 
+        jcbTipoCaixa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aérea", "Subterrânea" }));
+
         javax.swing.GroupLayout jPanelTipoCaixaLayout = new javax.swing.GroupLayout(jPanelTipoCaixa);
         jPanelTipoCaixa.setLayout(jPanelTipoCaixaLayout);
         jPanelTipoCaixaLayout.setHorizontalGroup(
@@ -146,34 +142,31 @@ public class FormularioCaixa extends javax.swing.JFrame {
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabelLatitude)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtfLatitudeCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanelTipoCaixaLayout.createSequentialGroup()
                                 .addComponent(jLabelLongitude)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtfLongitudeCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jtfPesquisarPDistribuicao, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtfPesquisarCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jbPesquisarPDistribuição)))
                         .addContainerGap())
                     .addGroup(jPanelTipoCaixaLayout.createSequentialGroup()
-                        .addGroup(jPanelTipoCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelTipoCaixaLayout.createSequentialGroup()
-                                .addComponent(jlEtiquetaCaixa)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelTipoCaixaLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckBoxAerea)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckBoxSubterranea)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addComponent(jlEtiquetaCaixa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jtfEtiquetaCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
                         .addComponent(jLabelPotencia)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))))
+                        .addComponent(jtfPotenciaCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))
+                    .addGroup(jPanelTipoCaixaLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcbTipoCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanelTipoCaixaLayout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jbSalvarCadastroPDistribuicao, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,25 +186,24 @@ public class FormularioCaixa extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addGroup(jPanelTipoCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlEtiquetaCaixa)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfEtiquetaCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelPotencia)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtfPotenciaCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelTipoCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jCheckBoxAerea)
-                            .addComponent(jCheckBoxSubterranea))
-                        .addGap(53, 53, 53))
+                            .addComponent(jcbTipoCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(52, 52, 52))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTipoCaixaLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanelTipoCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelLatitude)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtfLatitudeCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanelTipoCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelLongitude)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtfPesquisarPDistribuicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfLongitudeCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfPesquisarCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbPesquisarPDistribuição))
                 .addGap(10, 10, 10)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,23 +244,20 @@ public class FormularioCaixa extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBoxSubterraneaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxSubterraneaActionPerformed
+    private void jtfEtiquetaCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEtiquetaCaixaActionPerformed
         // TODO add your handling code here:
-             jCheckBoxAerea.setSelected(false);
-    }//GEN-LAST:event_jCheckBoxSubterraneaActionPerformed
-
-    private void jCheckBoxAereaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxAereaActionPerformed
-            // TODO add your handling code here:
-            
-           jCheckBoxSubterranea.setSelected(false);
-    }//GEN-LAST:event_jCheckBoxAereaActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jtfEtiquetaCaixaActionPerformed
 
     private void jbSalvarCadastroPDistribuicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarCadastroPDistribuicaoActionPerformed
-        // TODO add your handling code here:
+        // Salvar na caixa de inspeção
+        mod.setEtiqueta(Integer.parseInt(jtfEtiquetaCaixa.getText()));
+        mod.setPotencia(Float.parseFloat(jtfPotenciaCaixa.getText()));
+        mod.setTipoCaixa((String) jcbTipoCaixa.getSelectedItem());     ////verificar se erro
+        mod.setLatitude(Float.parseFloat(jtfLatitudeCaixa.getText()));
+        mod.setLongitude(Float.parseFloat(jtfLongitudeCaixa.getText()));
+                
+        control.Salvar(mod);
+        
     }//GEN-LAST:event_jbSalvarCadastroPDistribuicaoActionPerformed
 
     private void jbNovoCadastroPDistribuicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovoCadastroPDistribuicaoActionPerformed
@@ -283,9 +272,9 @@ public class FormularioCaixa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbPesquisarPDistribuiçãoActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void jtfLatitudeCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfLatitudeCaixaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jtfLatitudeCaixaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,8 +312,6 @@ public class FormularioCaixa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBoxAerea;
-    private javax.swing.JCheckBox jCheckBoxSubterranea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelLatitude;
@@ -333,16 +320,17 @@ public class FormularioCaixa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTipoCaixa;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JButton jbCancelarCadastroPDistribuicao;
     private javax.swing.JButton jbExcluirCadastroPDistribuicao;
     private javax.swing.JButton jbNovoCadastroPDistribuicao;
     private javax.swing.JButton jbPesquisarPDistribuição;
     private javax.swing.JButton jbSalvarCadastroPDistribuicao;
+    private javax.swing.JComboBox<String> jcbTipoCaixa;
     private javax.swing.JLabel jlEtiquetaCaixa;
-    private javax.swing.JTextField jtfPesquisarPDistribuicao;
+    private javax.swing.JTextField jtfEtiquetaCaixa;
+    private javax.swing.JTextField jtfLatitudeCaixa;
+    private javax.swing.JTextField jtfLongitudeCaixa;
+    private javax.swing.JTextField jtfPesquisarCaixa;
+    private javax.swing.JTextField jtfPotenciaCaixa;
     // End of variables declaration//GEN-END:variables
 }
