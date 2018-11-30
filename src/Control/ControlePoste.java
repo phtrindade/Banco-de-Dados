@@ -20,7 +20,7 @@ public class ControlePoste {
     Coneccao conex= new Coneccao();
     Model.ModeloPoste mod= new ModeloPoste();
     
-    public void Salvar(ModeloPoste modelo){
+    public void Salvar(ModeloPoste mod){
         conex.coneccao();
         try {
             PreparedStatement pst = conex.con.prepareStatement("INSERT INTO poste(etiqueta, altura, material,latitude,longitude,ponto_de_distribuicao_etiqueta) values(?,?,?,?,?,?)");
@@ -36,5 +36,6 @@ public class ControlePoste {
             JOptionPane.showMessageDialog(null,"ERRO ao inserir os dados\n"+ex);
             Logger.getLogger(ControlePoste.class.getName()).log(Level.SEVERE, null, ex);
         }
+        conex.desconecta();
     }
 }

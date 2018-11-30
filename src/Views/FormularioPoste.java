@@ -253,7 +253,7 @@ public class FormularioPoste extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(620, 472));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+      
     private void jtfEtiquetaPosteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEtiquetaPosteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfEtiquetaPosteActionPerformed
@@ -263,13 +263,14 @@ public class FormularioPoste extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfPontoDistribucaoActionPerformed
 
     private void jbSalvarCadastroPosteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarCadastroPosteActionPerformed
-        // floa
+        
         mod.setEtiqueta(Integer.parseInt(jtfEtiquetaPoste.getText()));
         mod.setAltura(Float.parseFloat(jtfAlturaPoste.getText()));
+        mod.setMaterial((String) jcbMaterialPoste.getSelectedItem());
         mod.setLatitude(Float.parseFloat(jtfLatitude.getText()));
         mod.setLongitude(Float.parseFloat(jtfLongitude.getText()));
         mod.setP_D_etiqueta(Float.parseFloat(jtfPontoDistribucao.getText()));
-        mod.setMaterial((String) jcbMaterialPoste.getSelectedItem());
+        
         control.Salvar(mod);
     }//GEN-LAST:event_jbSalvarCadastroPosteActionPerformed
 
