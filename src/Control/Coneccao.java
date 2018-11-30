@@ -18,17 +18,17 @@ import javax.swing.JOptionPane;
 public class Coneccao {
     public Statement stm;       // Realiza a pesquisa no BD
     public ResultSet rs;        // Armazena o resultado da pesquisa no BD
-    private String Driver  = "org.postgreesql.Driver";      // Identifica o serviço do BD driver será padrão do  Postgree
+    private String Driver  = "org.postgresql.Driver";      // Identifica o serviço do BD driver será padrão do  Postgree
     private String caminho = "jdbc:postgresql://localhost:5432/M3_BDs";     // identifica o caminha onde esta alocado o BD
-    private String usuario = "trindade";
-    private String senha   = "Xre300";
-    public Connection conec; // variável responsavél pela coneção com BDs
+    private String usuario = "postgres";
+    private String senha   = "123456";
+    public Connection con; // variável responsavél pela coneção com BDs
        
     public void coneccao(){
     
         try {
             System.setProperty("jdbc.Drivers", Driver);
-            conec=DriverManager.getConnection(caminho, usuario,senha);
+            con=DriverManager.getConnection(caminho, usuario,senha);
             JOptionPane.showMessageDialog(null,"Conecção realizada com sucesso");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Erro na Conecção com BD!\n"+ex.getMessage());
@@ -38,7 +38,7 @@ public class Coneccao {
 }
     public void desconecta(){
         try{
-            conec.close();
+            con.close();
             JOptionPane.showMessageDialog(null, "Banco de Dados DESCONECTADO!");
             
         }catch (SQLException ex){

@@ -209,8 +209,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jmMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuSairActionPerformed
         // Exibe perguta de confirmação de encerramento de programa
         JOptionPane.showConfirmDialog(rootPane, "Deseja realmente Sair");
+        conecta.desconecta();
         System.exit(0);
-        
+     
     }//GEN-LAST:event_jmMenuSairActionPerformed
 
     private void jmMenuCadastroCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuCadastroCaixaActionPerformed
