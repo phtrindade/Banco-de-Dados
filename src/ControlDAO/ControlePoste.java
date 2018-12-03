@@ -37,15 +37,17 @@ public class ControlePoste {
             JOptionPane.showMessageDialog(null,"ERRO ao inserir os dados\n"+ex);
             Logger.getLogger(ControlePoste.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       
-        
-        
+     
         conex.desconecta();
     }
+    
     public ModeloPoste buscaPoste(ModeloPoste mod){
         conex.coneccao();
-        conex.execultaSQL("select *from poste where etiqueta like'"+mod.getpesquisaPoste()+"%'");
+        System.out.println(mod.getpesquisaPoste());
+        
+        conex.execultaSQL("select *from poste where etiqueta::text like'%"+mod.getpesquisaPoste().toString()+"%'");
+        
+        
         try {
             conex.rs.first();
             mod.setEtiqueta(conex.rs.getInt("etiqueta"));

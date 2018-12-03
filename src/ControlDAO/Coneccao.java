@@ -38,8 +38,8 @@ public class Coneccao {
 }
     public void execultaSQL(String sql){
       try {
-          
-          stm = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+          // rs = stm.executeQuery(sql);
+          stm = con.createStatement(rs.TYPE_SCROLL_INSENSITIVE, rs.CONCUR_READ_ONLY);
           rs = stm.executeQuery(sql);
      
         } catch (SQLException ex) {

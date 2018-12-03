@@ -296,16 +296,26 @@ public class FormularioPoste extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCancelarCadastroPosteActionPerformed
 
     private void jbPesquisarPostesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarPostesActionPerformed
+        
         // 
         
+        try{
         mod.setpesquisaPoste(jtfPesquisarPostes.getText());
+        System.out.println(jtfPesquisarPostes.getText());
         ModeloPoste model = control.buscaPoste(mod);
+        System.out.println(jtfPesquisarPostes.getText());
         
         jtfEtiquetaPoste.setText(String.valueOf(model.getEtiqueta()));
         jtfAlturaPoste.setText(String.valueOf(model.getAltura()));
         jcbMaterialPoste.setSelectedItem(model.getLongitude());
         jtfLatitude.setText(String.valueOf(model.getLatitude()));
-        jtfLongitude.setText(String.valueOf(model.getLongitude()));
+        jtfLongitude.setText(String.valueOf(model.getLongitude()));}
+        catch(Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+        
+        
         
     }//GEN-LAST:event_jbPesquisarPostesActionPerformed
 
