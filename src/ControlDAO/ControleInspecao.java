@@ -3,39 +3,43 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Control;
-
-import Model.ModeloPoste;
+package ControlDAO;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import Model.ModeloInspecao;
 
 /**
  *
  * @author trindade
  */
-public class ControlePoste {
-    Coneccao conex= new Coneccao();
-    Model.ModeloPoste mod= new ModeloPoste();
+public class ControleInspecao {
+  
+    Coneccao conex = new Coneccao();
+    Model.ModeloInspecao mod = new ModeloInspecao();
     
-    public void Salvar(ModeloPoste mod){
+     public void Salvar(ModeloInspecao mod){
         conex.coneccao();
         try {
-            PreparedStatement pst = conex.con.prepareStatement("INSERT INTO poste(etiqueta, altura, material,latitude,longitude,ponto_de_distribuicao_etiqueta) values(?,?,?,?,?,?)");
-            pst.setInt   (1, mod.getEtiqueta());
-            pst.setFloat (2, mod.getAltura());
-            pst.setString(3, mod.getMaterial());
-            pst.setFloat (4, mod.getLatitude());
-            pst.setFloat (5, mod.getLongitude());
-            pst.setFloat (6, mod.getP_D_etiqueta());
+            PreparedStatement pst = conex.con.prepareStatement("INSERT INTO inspecao(os,data,estado,prumo,condicao_de_fiacao,poste_etiqueta) values(?,?,?,?,?,?)");
+            pst.setInt    (1, mod.getOs());
+            pst.setString (2, mod.getDate());
+            pst.setString (3, mod.getEstado());
+            pst.setString (4, mod.getPrumo());
+            pst.setString (5, mod.getFiacao());
+            pst.setInt    (6, mod.getEtiquetaPoste());
+            
             pst.execute();
+            
             JOptionPane.showMessageDialog(null,"Dados Inseridos com Sucesso!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"ERRO ao inserir os dados\n"+ex);
             Logger.getLogger(ControlePoste.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
         conex.desconecta();
     }
-}
+}  
+

@@ -5,8 +5,8 @@
  */
 package Views;
 
-import Control.Coneccao;
-import Control.ControlePoste;
+import ControlDAO.Coneccao;
+import ControlDAO.ControlePoste;
 import Model.ModeloPoste;
 
 /**
@@ -125,6 +125,11 @@ public class FormularioPoste extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTablePostesCadastrados);
 
         jbPesquisarPostes.setText("Pesquisar");
+        jbPesquisarPostes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbPesquisarPostesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -273,6 +278,13 @@ public class FormularioPoste extends javax.swing.JFrame {
         mod.setP_D_etiqueta(Float.parseFloat(jtfPontoDistribucao.getText()));
         
         control.Salvar(mod);
+        
+        jtfAlturaPoste.setText("");
+        jtfEtiquetaPoste.setText("");
+        jtfLatitude.setText("");
+        jtfLongitude.setText("");
+        jtfPesquisarPostes.setText("");
+        jtfPontoDistribucao.setText("");
     }//GEN-LAST:event_jbSalvarCadastroPosteActionPerformed
 
     private void jbNovoCadastroPosteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovoCadastroPosteActionPerformed
@@ -282,6 +294,20 @@ public class FormularioPoste extends javax.swing.JFrame {
     private void jbCancelarCadastroPosteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarCadastroPosteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbCancelarCadastroPosteActionPerformed
+
+    private void jbPesquisarPostesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarPostesActionPerformed
+        // 
+        
+        mod.setpesquisaPoste(jtfPesquisarPostes.getText());
+        ModeloPoste model = control.buscaPoste(mod);
+        
+        jtfEtiquetaPoste.setText(String.valueOf(model.getEtiqueta()));
+        jtfAlturaPoste.setText(String.valueOf(model.getAltura()));
+        jcbMaterialPoste.setSelectedItem(model.getLongitude());
+        jtfLatitude.setText(String.valueOf(model.getLatitude()));
+        jtfLongitude.setText(String.valueOf(model.getLongitude()));
+        
+    }//GEN-LAST:event_jbPesquisarPostesActionPerformed
 
     /**
      * @param args the command line arguments

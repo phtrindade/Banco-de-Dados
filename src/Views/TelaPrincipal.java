@@ -5,7 +5,7 @@
  */
 package Views;
 
-import Control.Coneccao;
+import ControlDAO.Coneccao;
 import javax.swing.JOptionPane;
 
 /**

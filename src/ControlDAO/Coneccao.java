@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Control;
+package ControlDAO;
 
-import java.awt.HeadlessException;
+
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,6 +36,20 @@ public class Coneccao {
             
         }   
 }
+    public void execultaSQL(String sql){
+      try {
+          
+          stm = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+          rs = stm.executeQuery(sql);
+     
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null,"Erro no EXECULTA SQL!\n"+ex.getMessage());
+           // Logger.getLogger(Coneccao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    
     public void desconecta(){
         try{
             con.close();
