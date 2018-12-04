@@ -5,19 +5,12 @@
  */
 package Views;
 
-import ControlDAO.Coneccao;
-import ControlDAO.ControleInspecao;
-import Model.ModeloInspecao;
-
 /**
  *
  * @author trindade
  */
 public class FormularioInspecao extends javax.swing.JFrame {
 
-        ModeloInspecao mod = new ModeloInspecao();
-        ControleInspecao control = new ControleInspecao();
-        Coneccao conex = new Coneccao();
     /**
      * Creates new form FormularioInspecao
      */
@@ -35,16 +28,22 @@ public class FormularioInspecao extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jcbCondicoesFiacao = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jtfOrdemServico = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jtfDataInspecao = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jtfEtiquetaPoste = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jCheckBoxEstadoPosteBom = new javax.swing.JCheckBox();
+        jCheckEstadoPosteRuim = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
+        jCheckBoxPrumoSim = new javax.swing.JCheckBox();
+        jCheckBoxPrumoNao = new javax.swing.JCheckBox();
         jLabel7 = new javax.swing.JLabel();
+        jCheckBoxCondicoesFiacaoBom = new javax.swing.JCheckBox();
+        jCheckBoxCondicoesFiacaoRuim = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jbSalvarCadastroInspeção = new javax.swing.JButton();
@@ -52,10 +51,7 @@ public class FormularioInspecao extends javax.swing.JFrame {
         jbCancelarCadastroInspeção = new javax.swing.JButton();
         jbExcluirCadastroInspeção = new javax.swing.JButton();
         jbPesquisarInspecao = new javax.swing.JButton();
-        jtfPesquisarInspecao = new javax.swing.JTextField();
-        jcbPrumo = new javax.swing.JComboBox<>();
-        jcbEstadoPoste = new javax.swing.JComboBox<>();
-        jcbCondicaoFiacao = new javax.swing.JComboBox<>();
+        jTextField4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -63,27 +59,69 @@ public class FormularioInspecao extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jLabel1.setText("Cadastro de Inspeção");
 
-        jcbCondicoesFiacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setText("Ordem de Serviço:");
 
-        jtfOrdemServico.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfOrdemServicoActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Data:");
 
-        jtfDataInspecao.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel4.setText("Etiqueta do Poste:");
 
         jLabel5.setText("Estado do Poste:");
 
+        jCheckBoxEstadoPosteBom.setText("Bom");
+        jCheckBoxEstadoPosteBom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxEstadoPosteBomActionPerformed(evt);
+            }
+        });
+
+        jCheckEstadoPosteRuim.setText("Ruim");
+        jCheckEstadoPosteRuim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckEstadoPosteRuimActionPerformed(evt);
+            }
+        });
+
         jLabel6.setText("Prumo:");
 
+        jCheckBoxPrumoSim.setText("Sim");
+        jCheckBoxPrumoSim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxPrumoSimActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxPrumoNao.setText("Não");
+        jCheckBoxPrumoNao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxPrumoNaoActionPerformed(evt);
+            }
+        });
+
         jLabel7.setText("Condições da fiação");
+
+        jCheckBoxCondicoesFiacaoBom.setText("Bom");
+        jCheckBoxCondicoesFiacaoBom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxCondicoesFiacaoBomActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxCondicoesFiacaoRuim.setText("Ruim");
+        jCheckBoxCondicoesFiacaoRuim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxCondicoesFiacaoRuimActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -123,74 +161,64 @@ public class FormularioInspecao extends javax.swing.JFrame {
 
         jbPesquisarInspecao.setText("Pesquisar");
 
-        jtfPesquisarInspecao.addActionListener(new java.awt.event.ActionListener() {
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfPesquisarInspecaoActionPerformed(evt);
+                jTextField4ActionPerformed(evt);
             }
         });
 
-        jcbPrumo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
-
-        jcbEstadoPoste.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bom", "Ruim" }));
-        jcbEstadoPoste.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbEstadoPosteActionPerformed(evt);
-            }
-        });
-
-        jcbCondicaoFiacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boa", "Ruim" }));
-        jcbCondicaoFiacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbCondicaoFiacaoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jcbCondicoesFiacaoLayout = new javax.swing.GroupLayout(jcbCondicoesFiacao);
-        jcbCondicoesFiacao.setLayout(jcbCondicoesFiacaoLayout);
-        jcbCondicoesFiacaoLayout.setHorizontalGroup(
-            jcbCondicoesFiacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jcbCondicoesFiacaoLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jcbCondicoesFiacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(jcbCondicoesFiacaoLayout.createSequentialGroup()
-                        .addGroup(jcbCondicoesFiacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jcbCondicoesFiacaoLayout.createSequentialGroup()
-                                .addGroup(jcbCondicoesFiacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jcbCondicoesFiacaoLayout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jtfOrdemServico, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jcbCondicoesFiacaoLayout.createSequentialGroup()
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jtfEtiquetaPoste, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jcbCondicoesFiacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jcbCondicoesFiacaoLayout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jtfDataInspecao, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jcbCondicoesFiacaoLayout.createSequentialGroup()
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jcbEstadoPoste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jcbCondicoesFiacaoLayout.createSequentialGroup()
+                                        .addComponent(jCheckBoxEstadoPosteBom)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jCheckEstadoPosteRuim))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jcbPrumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54)
+                                .addComponent(jCheckBoxPrumoSim)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckBoxPrumoNao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jcbCondicaoFiacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 174, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcbCondicoesFiacaoLayout.createSequentialGroup()
+                                .addComponent(jCheckBoxCondicoesFiacaoBom)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckBoxCondicoesFiacaoRuim)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(331, 331, 331)
-                        .addComponent(jtfPesquisarInspecao)
+                        .addComponent(jTextField4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbPesquisarInspecao)))
                 .addContainerGap())
-            .addGroup(jcbCondicoesFiacaoLayout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(102, 102, 102)
                 .addComponent(jbSalvarCadastroInspeção, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -199,42 +227,45 @@ public class FormularioInspecao extends javax.swing.JFrame {
                 .addComponent(jbCancelarCadastroInspeção)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbExcluirCadastroInspeção, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
-        jcbCondicoesFiacaoLayout.setVerticalGroup(
-            jcbCondicoesFiacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jcbCondicoesFiacaoLayout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jcbCondicoesFiacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jtfOrdemServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jtfDataInspecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jcbCondicoesFiacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jtfEtiquetaPoste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jcbEstadoPoste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckBoxEstadoPosteBom)
+                    .addComponent(jCheckEstadoPosteRuim))
                 .addGap(18, 18, 18)
-                .addGroup(jcbCondicoesFiacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
+                    .addComponent(jCheckBoxPrumoSim)
+                    .addComponent(jCheckBoxPrumoNao)
                     .addComponent(jLabel7)
-                    .addComponent(jcbPrumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcbCondicaoFiacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckBoxCondicoesFiacaoBom)
+                    .addComponent(jCheckBoxCondicoesFiacaoRuim))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jcbCondicoesFiacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbPesquisarInspecao)
-                    .addComponent(jtfPesquisarInspecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jcbCondicoesFiacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbSalvarCadastroInspeção, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbNovoCadastroInspeção, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbCancelarCadastroInspeção)
                     .addComponent(jbExcluirCadastroInspeção))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,8 +277,8 @@ public class FormularioInspecao extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jcbCondicoesFiacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,34 +286,29 @@ public class FormularioInspecao extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jcbCondicoesFiacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtfOrdemServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfOrdemServicoActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtfOrdemServicoActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
-    
-    
+    private void jCheckBoxEstadoPosteBomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxEstadoPosteBomActionPerformed
+        // TODO add your handling code here:
+        jCheckEstadoPosteRuim.setSelected(false);
+    }//GEN-LAST:event_jCheckBoxEstadoPosteBomActionPerformed
+
+    private void jCheckBoxPrumoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPrumoSimActionPerformed
+        // TODO add your handling code here:
+        jCheckBoxPrumoNao.setSelected(false);
+    }//GEN-LAST:event_jCheckBoxPrumoSimActionPerformed
+
     private void jbSalvarCadastroInspeçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarCadastroInspeçãoActionPerformed
-        
-        mod.setOs(Integer.parseInt(jtfOrdemServico.getText()));
-        mod.setDate((String) jtfDataInspecao.getText());
-        mod.setEstado((String) jcbEstadoPoste.getSelectedItem()); 
-        mod.setPrumo((String) jcbPrumo.getSelectedItem()); 
-        mod.setFiacao((String) jcbCondicaoFiacao.getSelectedItem());
-        mod.setEtiquetaPoste(Integer.parseInt(jtfEtiquetaPoste.getText()));
-                
-        control.Salvar(mod);        
-        
-        jtfDataInspecao.setText("");
-        jtfEtiquetaPoste.setText("");
-        jtfOrdemServico.setText("");
-        jtfOrdemServico.setText("");
+        // TODO add your handling code here:
     }//GEN-LAST:event_jbSalvarCadastroInspeçãoActionPerformed
 
     private void jbNovoCadastroInspeçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovoCadastroInspeçãoActionPerformed
@@ -293,17 +319,29 @@ public class FormularioInspecao extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbCancelarCadastroInspeçãoActionPerformed
 
-    private void jtfPesquisarInspecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfPesquisarInspecaoActionPerformed
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtfPesquisarInspecaoActionPerformed
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
-    private void jcbEstadoPosteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbEstadoPosteActionPerformed
+    private void jCheckEstadoPosteRuimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckEstadoPosteRuimActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcbEstadoPosteActionPerformed
+         jCheckBoxEstadoPosteBom.setSelected(false);
+    }//GEN-LAST:event_jCheckEstadoPosteRuimActionPerformed
 
-    private void jcbCondicaoFiacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCondicaoFiacaoActionPerformed
+    private void jCheckBoxPrumoNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPrumoNaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcbCondicaoFiacaoActionPerformed
+        jCheckBoxPrumoSim.setSelected(false);
+    }//GEN-LAST:event_jCheckBoxPrumoNaoActionPerformed
+
+    private void jCheckBoxCondicoesFiacaoBomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxCondicoesFiacaoBomActionPerformed
+        // TODO add your handling code here:
+        jCheckBoxCondicoesFiacaoRuim.setSelected(false);
+    }//GEN-LAST:event_jCheckBoxCondicoesFiacaoBomActionPerformed
+
+    private void jCheckBoxCondicoesFiacaoRuimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxCondicoesFiacaoRuimActionPerformed
+        // TODO add your handling code here:
+        jCheckBoxCondicoesFiacaoBom.setSelected(false);
+    }//GEN-LAST:event_jCheckBoxCondicoesFiacaoRuimActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,6 +379,12 @@ public class FormularioInspecao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox jCheckBoxCondicoesFiacaoBom;
+    private javax.swing.JCheckBox jCheckBoxCondicoesFiacaoRuim;
+    private javax.swing.JCheckBox jCheckBoxEstadoPosteBom;
+    private javax.swing.JCheckBox jCheckBoxPrumoNao;
+    private javax.swing.JCheckBox jCheckBoxPrumoSim;
+    private javax.swing.JCheckBox jCheckEstadoPosteRuim;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -348,20 +392,17 @@ public class FormularioInspecao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JButton jbCancelarCadastroInspeção;
     private javax.swing.JButton jbExcluirCadastroInspeção;
     private javax.swing.JButton jbNovoCadastroInspeção;
     private javax.swing.JButton jbPesquisarInspecao;
     private javax.swing.JButton jbSalvarCadastroInspeção;
-    private javax.swing.JComboBox<String> jcbCondicaoFiacao;
-    private javax.swing.JPanel jcbCondicoesFiacao;
-    private javax.swing.JComboBox<String> jcbEstadoPoste;
-    private javax.swing.JComboBox<String> jcbPrumo;
-    private javax.swing.JTextField jtfDataInspecao;
-    private javax.swing.JTextField jtfEtiquetaPoste;
-    private javax.swing.JTextField jtfOrdemServico;
-    private javax.swing.JTextField jtfPesquisarInspecao;
     // End of variables declaration//GEN-END:variables
 }

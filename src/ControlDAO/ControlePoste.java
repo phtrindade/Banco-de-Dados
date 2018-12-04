@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package ControlDAO;
-
-import ControlDAO.ControlePoste;
+import Views.FormularioPoste;
 import Model.ModeloPoste;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -24,56 +23,51 @@ public class ControlePoste {
     public void Salvar(ModeloPoste mod){
         conex.coneccao();
         try {
-            PreparedStatement pst = conex.con.prepareStatement("INSERT INTO poste(etiqueta, altura, material,latitude,longitude,ponto_de_distribuicao_etiqueta) VALUES(?,?,?,?,?,?)");
+            PreparedStatement pst = conex.con.prepareStatement("INSERT INTO poste(etiqueta, altura, material,latitude,longitude,ponto_de_distribuicao_etiqueta) values(?,?,?,?,?,?)");
+           
             pst.setInt   (1, mod.getEtiqueta());
             pst.setFloat (2, mod.getAltura());
             pst.setString(3, mod.getMaterial());
             pst.setFloat (4, mod.getLatitude());
             pst.setFloat (5, mod.getLongitude());
             pst.setFloat (6, mod.getP_D_etiqueta());
-            System.out.println("PORQUE NÃO ESTA INDO");
-
+           
             pst.execute();
-            System.out.println("PORQUE NÃO ESTA INDO");
+            
             JOptionPane.showMessageDialog(null,"Dados Inseridos com Sucesso!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"ERRO ao inserir os dados\n"+ex);
             Logger.getLogger(ControlePoste.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
         conex.desconecta();
+        
     }
-     
-    public void editarPoste(ModeloPoste mod){
+    public void deletar(ModeloPoste mod){
         conex.coneccao();
-        try {
+        
+        try{
+          
+            PreparedStatement pst = conex.con.prepareStatement("DELETE from poste WHERE etiqueta=?");
             
-            PreparedStatement pst = conex.con.prepareStatement("UPDATE poste SET etiqueta=?,altura=?,material=?,latitude=?,longitude=? WHERE ponto_de_distribuicao_etiqueta=?" );
-            
-            pst.setInt   ( 1, mod.getEtiqueta());
-            pst.setFloat ( 2, mod.getAltura());
-            pst.setString( 3, mod.getMaterial());
-            pst.setFloat ( 4, mod.getLatitude());
-            pst.setFloat ( 5, mod.getLongitude());
-            pst.setFloat ( 6, mod.getP_D_etiqueta());
-            
+            pst.setInt   (1, mod.getEtiqueta());
+          
             pst.execute();
-            
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"ERRO na edição dos dados\n"+ex);
+            JOptionPane.showMessageDialog(null,"Dados EXCLUIDO");
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"ERRO na exclusão dos dados\n"+ex);
             Logger.getLogger(ControlePoste.class.getName()).log(Level.SEVERE, null, ex);
         }
         conex.desconecta();
     }
     
     
-    public ModeloPoste buscaPoste(ModeloPoste mod){
+     public ModeloPoste buscaPoste(ModeloPoste mod){
         conex.coneccao();
-        System.out.println(mod.getpesquisaPoste());
+        System.out.println(mod.getPesquisaPoste());
         
-        conex.execultaSQL("select *from poste where (etiqueta,altura,latitude,longitude,ponto_de_distribuicao_etiqueta)::text like'%"+mod.getpesquisaPoste()+"%'");
+        conex.execultaSQL("select *from poste where (etiqueta,altura,latitude,longitude,material,ponto_de_distribuicao_etiqueta)::text like'%"+mod.getPesquisaPoste()+"%'");
         //conex.execultaSQL("select *from poste where altura::text like'%"+mod.getpesquisaPoste().toString()+"%'");
-        //-->>>conex.execultaSQL("select *from poste where material like'%"+mod.getpesquisaPoste()+"%'");
+       //-----conex.execultaSQL("select *from poste where material like'%"+mod.getPesquisaPoste()+"%'");
         //conex.execultaSQL("select *from poste where latitude::text like'%"+mod.getpesquisaPoste().toString()+"%'");
         //conex.execultaSQL("select *from poste where longitude::text like'%"+mod.getpesquisaPoste().toString()+"%'");
         //conex.execultaSQL("select *from poste where ponto_de_distribuicao_etiqueta::text like'%"+mod.getpesquisaPoste().toString()+"%'");
@@ -96,5 +90,4 @@ public class ControlePoste {
         return mod;
        
     }
-
 }

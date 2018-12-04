@@ -5,7 +5,7 @@
  */
 package ControlDAO;
 
-
+import java.awt.HeadlessException;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,7 +36,7 @@ public class Coneccao {
             
         }   
 }
-    public void execultaSQL(String sql){
+     public void execultaSQL(String sql){
       try {
           // rs = stm.executeQuery(sql);
           stm = con.createStatement(rs.TYPE_SCROLL_INSENSITIVE, rs.CONCUR_READ_ONLY);
@@ -48,7 +48,6 @@ public class Coneccao {
         }
 
     }
-      
     public void desconecta(){
         try{
             con.close();

@@ -11,8 +11,7 @@ public class ModeloCaixa {
     private String tipoCaixa;
     private float latitude;
     private float longitude;
-    private String pesquisaInspecao;
-    
+
     public int getEtiqueta() {return etiqueta;}
 
     public void setEtiqueta(int etiqueta) {this.etiqueta = etiqueta;}
@@ -32,18 +31,4 @@ public class ModeloCaixa {
     public float getLongitude() {return longitude;}
 
     public void setLongitude(float longitude) {this.longitude = longitude;}
-
-    /**
-     * @return the pesquisaInspecao
-     */
-    public String getPesquisaInspecao() {
-        return pesquisaInspecao;
-    }
-
-    /**
-     * @param pesquisaInspecao the pesquisaInspecao to set
-     */
-    public void setPesquisaInspecao(String pesquisaInspecao) {
-        this.pesquisaInspecao = pesquisaInspecao;
-    }
 }

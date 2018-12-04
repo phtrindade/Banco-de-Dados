@@ -12,9 +12,7 @@ public class ModeloPoste {
     private float latitude;
     private float longitude;
     private float P_D_etiqueta;
-    private String pesquisaPoste;
-            
-
+private String pesquisaPoste;
     
     public int getEtiqueta() {return etiqueta;}
   
@@ -40,8 +38,7 @@ public class ModeloPoste {
 
     public void setP_D_etiqueta(float P_D_etiqueta) {this.P_D_etiqueta = P_D_etiqueta;}
 
-    public String getpesquisaPoste() {return pesquisaPoste;}
+    public String getPesquisaPoste() {return pesquisaPoste;}
 
-    public void setpesquisaPoste(String PesquisaPoste) {this.pesquisaPoste = PesquisaPoste;}
-
+    public void setPesquisaPoste(String pesquisaPoste) {this.pesquisaPoste = pesquisaPoste;}
 }

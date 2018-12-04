@@ -256,12 +256,8 @@ public class FormularioCaixa extends javax.swing.JFrame {
         mod.setLatitude(Float.parseFloat(jtfLatitudeCaixa.getText()));
         mod.setLongitude(Float.parseFloat(jtfLongitudeCaixa.getText()));
                 
-        control.Salvar(mod);   
+        control.Salvar(mod);
         
-        jtfEtiquetaCaixa.setText("");
-        jtfPotenciaCaixa.setText("");
-        jtfLatitudeCaixa.setText("");
-        jtfLongitudeCaixa.setText("");
     }//GEN-LAST:event_jbSalvarCadastroPDistribuicaoActionPerformed
 
     private void jbNovoCadastroPDistribuicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovoCadastroPDistribuicaoActionPerformed
