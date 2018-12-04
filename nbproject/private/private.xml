@@ -15,10 +15,10 @@
             <file>file:/home/trindade/NetBeansProjects/M3_BDs/src/ControlDAO/Coneccao.java</file>
             <file>file:/home/trindade/NetBeansProjects/M3_BDs/src/m3_bds/M3_BDs.java</file>
             <file>file:/home/trindade/NetBeansProjects/M3_BDs/src/Model/ModeloPoste.java</file>
-            <file>file:/home/trindade/NetBeansProjects/M3_BDs/src/ControlDAO/ControleCaixa.java</file>
             <file>file:/home/trindade/NetBeansProjects/M3_BDs/src/ControlDAO/ControlePoste.java</file>
-            <file>file:/home/trindade/NetBeansProjects/M3_BDs/src/Views/FormularioInspecao.java</file>
-            <file>file:/home/trindade/NetBeansProjects/M3_BDs/src/Views/FormularioCaixa.java</file>
+            <file>file:/home/trindade/NetBeansProjects/M3_BDs/src/ControlDAO/ControleCaixa.java</file>
+            <file>file:/home/trindade/NetBeansProjects/M3_BDs/src/Views/FormularioPoste.java</file>
+            <file>file:/home/trindade/NetBeansProjects/M3_BDs/src/Model/ModeloCaixa.java</file>
             <file>file:/home/trindade/NetBeansProjects/M3_BDs/src/ControlDAO/ControleInspecao.java</file>
             <file>file:/home/trindade/NetBeansProjects/M3_BDs/src/Views/TelaPrincipal.java</file>
         </group>

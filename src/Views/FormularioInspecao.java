@@ -269,10 +269,11 @@ public class FormularioInspecao extends javax.swing.JFrame {
     
     
     private void jbSalvarCadastroInspeçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarCadastroInspeçãoActionPerformed
+        
         mod.setOs(Integer.parseInt(jtfOrdemServico.getText()));
         mod.setDate((String) jtfDataInspecao.getText());
         mod.setEstado((String) jcbEstadoPoste.getSelectedItem()); 
-        mod.setPrumo((String) jcbPrumo.getSelectedItem()); ////verificar se erro
+        mod.setPrumo((String) jcbPrumo.getSelectedItem()); 
         mod.setFiacao((String) jcbCondicaoFiacao.getSelectedItem());
         mod.setEtiquetaPoste(Integer.parseInt(jtfEtiquetaPoste.getText()));
                 

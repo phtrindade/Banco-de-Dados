@@ -41,5 +41,31 @@ public class ControleInspecao {
        
         conex.desconecta();
     }
+     
+     public ModeloInspecao buscaInspecao(ModeloInspecao mod){
+         
+         conex.coneccao();
+         conex.execultaSQL("select *from inspecao where (os,date,poste_etiqueta)::text like'%"+mod.getPesquisaInspecao().toString()+"%'");
+         conex.execultaSQL("select *from inspecao where (estado,prumo,fiacao) like'%"+mod.getPesquisaInspecao()+"%'");
+        
+        try {
+            conex.rs.first();
+            conex.rs.first();
+            mod.setOs(conex.rs.getInt("os"));
+            mod.setDate(conex.rs.getString("data"));
+            mod.setEstado(conex.rs.getString("estado"));
+            mod.setPrumo(conex.rs.getString("prumo"));
+            mod.setFiacao(conex.rs.getString("condicao_de_fiacao"));
+            mod.setEtiquetaPoste(conex.rs.getInt("poste_etiqueta"));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"ERRO PESQUISA INSPEÇAO!!!");
+            Logger.getLogger(ControleInspecao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         return mod;
+     
+     
+     
+     }
 }  
 

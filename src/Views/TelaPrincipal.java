@@ -17,8 +17,7 @@ import javax.swing.JOptionPane;
 public class TelaPrincipal extends javax.swing.JFrame {
 
     Coneccao conecta = new Coneccao();
-    
-    
+
     public TelaPrincipal() {
         initComponents();
             conecta.coneccao();

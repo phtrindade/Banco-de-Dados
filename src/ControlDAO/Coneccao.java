@@ -48,8 +48,7 @@ public class Coneccao {
         }
 
     }
-    
-    
+      
     public void desconecta(){
         try{
             con.close();
